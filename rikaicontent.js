@@ -657,6 +657,10 @@ var rcxContent = {
 	processHtml: function(html) {
 		tdata = window.rikaichan;
 		rcxContent.showPopup(html, tdata.prevTarget, tdata.popX, tdata.popY, false);
+		if(jQuery('table span.k-kanji').length){
+			KanjiViewer.initialize('kanjiViewer', 3, 7, 100, true, false, jQuery('table span.k-kanji').html());
+			jQuery('table span.k-kanji').css('display', 'none');
+		}
 		return 1;
 	},
 

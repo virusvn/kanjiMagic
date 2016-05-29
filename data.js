@@ -649,7 +649,8 @@ if (0) {
 			default:
 				k = isNaN(k) ? '-' : ('grade<br/>' + k);
 				break;
-			}
+			} 
+			var boxCount = 1; 
 			box = '<table class="k-abox-tb"><tr>' +
 				'<td class="k-abox-r">radical<br/>' + this.radData[bn].charAt(0) + ' ' + (bn + 1) + '</td>' +
 				'<td class="k-abox-g">' + k + '</td>' +
@@ -659,6 +660,7 @@ if (0) {
 				'</tr></table>';
 			if (rcxMain.config.kanjicomponents == 'true') {
 				k = this.radData[bn].split('\t');
+				boxCount++;
 				box += '<table class="k-bbox-tb">' +
 						'<tr><td class="k-bbox-1a">' + k[0] + '</td>' +
 						'<td class="k-bbox-1b">' + k[2] + '</td>' +
@@ -691,12 +693,12 @@ if (0) {
 			}
 			if (nums.length) nums = '<table class="k-mix-tb">' + nums + '</table>';
 
-			b.push('<table class="k-main-tb"><tr><td valign="top">');
+			b.push('<table class="k-main-tb"><tr><td><div id="kanjiViewer"></div></td><td valign="top">');
 			b.push(box);
-			b.push('<span class="k-kanji">' + entry.kanji + '</span><br/>');
+			b.push('<span class="k-kanji">' + entry.kanji + '</span></td></tr><tr><td colspan="2">');
 			b.push('<div class="k-eigo">' + entry.eigo + '</div>');
 			b.push('<div class="k-yomi">' + yomi + '</div>');
-			b.push('</td></tr><tr><td>' + nums + '</td></tr></table>');
+			b.push('</td></tr><tr><td colspan="2">' + nums + '</td></tr></table>');
 			return b.join('');
 		}
 

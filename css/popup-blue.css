@@ -1,6 +1,6 @@
 /* this is to reset almost everything under the popup to a sane value */
 
-#rikaichan-window, #rikaichan-window * { 
+#rikaichan-window { 
 	width: auto;
 	height: auto;
 	background: transparent;
