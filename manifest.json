@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
 	
-	"name": "rikaikun",
-	"version": "0.8.9",
+	"name": "Kanji Magic",
+	"version": "0.0.1",
 	
-	"description": "A port of rikaichan for chrome. Translate Japanese by hovering over words.",
+	"description": "Translate Japanese by hovering over words, draw Kanji stroke with order. [A port of rikaikun for chrome.]",
 	"icons": { "48": "images/icon48.png",
 				"128": "images/icon128.png"},
 	
