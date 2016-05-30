@@ -1,6 +1,11 @@
 /*
+  Kanji Magic
+	Copyright (C) 2016 Nhan Nguyen
+	http://kanjimagic.net
+	
+	---
 
-	Rikaikun
+	Originally based on Rikaikun
 	Copyright (C) 2010 Erek Speed
 	http://code.google.com/p/rikaikun/
 	
