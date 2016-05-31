@@ -2,7 +2,7 @@
   Kanji Magic
 	Copyright (C) 2016 Nhan Nguyen
 	http://kanjimagic.net
-	
+
 	---
 
 	Originally based on Rikaikun
