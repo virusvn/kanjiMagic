@@ -7,6 +7,9 @@ chrome.runtime.onMessage.addListener(
 			case 'enable?':
 				console.log('enable?');
 				rcxMain.onTabSelect(sender.tab.id);
+				chrome.management.getAll(function(result) {
+					console.log(result)
+				})
 				break;
 			case 'xsearch':
 				console.log('xsearch');

@@ -43,6 +43,25 @@ function rcxDict(loadNames) {
 	this.loadDictionary();
 	if (loadNames) this.loadNames();
 	this.loadDIF();
+	console.log(SQL)
+	try {
+		
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET',chrome.extension.getURL("data/sqlite/ja-vi/dict.sqlite"), true);
+	xhr.responseType = 'arraybuffer';
+
+	xhr.onload = function(e) {
+		var uInt8Array = new Uint8Array(this.response);
+		var db = new SQL.Database(uInt8Array);
+		var contents = db.exec("SELECT count(*) FROM dict");
+		console.log(contents)
+		// contents is now [{columns:['col1','col2',...], values:[[first row], [second row], ...]}]
+	};
+	xhr.send();
+	
+	}catch(e){
+		console.log(e)
+	}
 }
 
 rcxDict.prototype = {
