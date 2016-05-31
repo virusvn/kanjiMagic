@@ -6,7 +6,17 @@ function fillVals() {
 			break;
 		}
 	}
-	
+	// Display language
+	var lang = localStorage['language'];
+	if(typeof lang == 'undefined'){
+		lang = chrome.extension.getBackgroundPage().rcxMain.config.language 
+	}
+	for(var i=0; i < document.optform.languageOptions.length; ++i) {
+		if(document.optform.languageOptions[i].value == lang) {
+			document.optform.languageOptions[i].selected = true;
+			break;
+		}
+	}
 	if (localStorage['highlight'] == 'true')
 		document.optform.highlighttext.checked = true;
 	else
@@ -64,6 +74,7 @@ function fillVals() {
 }
 
 function getVals() {
+	localStorage['language'] = document.optform.languageOptions.value;
 	localStorage['popupcolor'] = document.optform.popupcolor.value;
 	localStorage['highlight'] = document.optform.highlighttext.checked;
 	localStorage['textboxhl'] = document.optform.textboxhl.checked;
@@ -83,7 +94,7 @@ function getVals() {
 	localStorage['copySeparator'] = document.optform.copySeparator.value;
 	localStorage['maxClipCopyEntries'] = document.optform.maxClipCopyEntries.value;
 
-
+  chrome.extension.getBackgroundPage().rcxMain.config.language = localStorage["language"];
 	chrome.extension.getBackgroundPage().rcxMain.config.css = localStorage["popupcolor"];
 	chrome.extension.getBackgroundPage().rcxMain.config.highlight = localStorage["highlight"];
 	chrome.extension.getBackgroundPage().rcxMain.config.textboxhl = localStorage["textboxhl"];

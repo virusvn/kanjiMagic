@@ -49,7 +49,7 @@ var rcxMain = {
 	dictCount: 3,
 	altView: 0,
 	enabled: 0,
-
+	language: 'vi'
 /*
     onLoad: function() { rcxMain._onLoad(); },
 	_onLoad: function() {
