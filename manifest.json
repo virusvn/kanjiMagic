@@ -10,7 +10,8 @@
 	
 	"permissions": [
 		"tabs",
-		"clipboardWrite"
+		"clipboardWrite",
+		"management"
 	],
 
 	"background": {
@@ -37,6 +38,6 @@
 		"css/popup-blue.css",
 		"css/popup-lightblue.css",
 		"css/popup-yellow.css"
-	]
-
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
