@@ -1,0 +1,23 @@
+{
+  "strokes": {"message":  "Số nét"},  
+  "radical": {"message":  "Bộ"},  
+  "grade": {"message":  "Cấp"},  
+  "freq": {"message":  "Phổ biến"},  
+  "displayStrokeOrder": {"message":  "Hiển thị số thứ tự nét"},  
+  "groupStrokeColor": {"message":  "Dùng 1 màu để vẽ hán tự"},  
+  "highlightText": {"message":  ""},   
+  "highlightTextInsideOfTextBoxes": {"message":  ""},   
+  "hideDefinitionsAndShowOnlyReading": {"message":  ""},   
+  "showMiniHelp": {"message": ""},  
+  "alternatePopupLocation": {"message":  ""},  
+  "movePopupLocationDown": {"message":  ""},  
+  "copyToClipboard": {"message":  ""},  
+  "hideShowDefinitions": {"message":  ""},  
+  "switchDictionaries": {"message":  ""},  
+  "previousCharacter": {"message":  ""},  
+  "nextCharacter": {"message": ""},  
+  "nextWord": {"message": ""},  
+  "line_ending": {"message": ""},  
+  "gieldSeparator": {"message": ""},  	
+  "maximumEntries": {"message": ""}
+}
