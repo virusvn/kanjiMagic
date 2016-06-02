@@ -392,7 +392,7 @@ var rcxMain = {
 		
 		var m = this.showMode;
 		var e = null;
-
+		
 		do {
 			switch (this.showMode) {
 			case 0:
@@ -400,6 +400,7 @@ var rcxMain = {
 				break;
 			case this.kanjiN:
 				e = this.dict.kanjiSearch(text.charAt(0));
+				this.dict.vietnameseSearch(text.charAt(0));
 				break;
 			case this.namesN:
 				e = this.dict.wordSearch(text, true);
