@@ -26,6 +26,13 @@
 								<option value="yellow">Yellow</option>
 							</select>
 							<br />
+							Default popup location:
+							<select class="inputfield" id="popupLocation" name="popupLocation">
+								<option value="0">Cursor</option>
+								<option value="1">Top Left</option>
+								<option value="2">Bottom Right</option>
+							</select>
+							<br />
 							<input type="checkbox" id="highlighttext" name="highlighttext">
 							Highlight text
 							<br />
@@ -37,11 +44,21 @@
 							<br />
 							<input type="checkbox" id="minihelp" name="minihelp">
 							Show mini help
+							<br />
+							<br />
+							Show popup with delay:
+							<input type="number" id="popupDelay" name="popupDelay" min="1"> milliseconds
 							</p>
 					</div>
 					<!-- <div id="keycon" class="tabcontent hide"> -->
 					<div id="keycon" class="tabContent">
 					<h1>Keyboard</h1>
+						Show popup only on pressed key:<br />
+						<input type="radio" name="showOnKey" value="">Not used<br />
+						<input type="radio" name="showOnKey" value="Alt">Alt<br />
+						<input type="radio" name="showOnKey" value="Ctrl">Ctrl<br />
+						<input type="radio" name="showOnKey" value="Alt+Ctrl">Alt+Ctrl<br />
+						<br />
 						<strong>Keys when popup is visible</strong><br><br>
 						<table cellspacing=5>
 						<tr><td>A</td><td>Alternate popup location</td></tr>
@@ -52,6 +69,8 @@
 						<tr><td>B</td><td>Previous character</td></tr>
 						<tr><td>M</td><td>Next character</td></tr>
 						<tr><td>N</td><td>Next word</td></tr>
+						<tr><td>J</td><td>Scroll back definitions</td></tr>
+						<tr><td>K</td><td>Scroll forward definitions</td></tr>
 						</table>
 							<br />
 							<input type="checkbox" id="disablekeys" name="disablekeys">
@@ -68,7 +87,10 @@
 							Halpern
 							<br />
 							<input type="checkbox" id="L" name="L">
-							Heisig
+							Heisig 5th Edition
+							<br />
+							<input type="checkbox" id="LF" name="LF">
+							Heisig 6th Edition
 							<br />
 							<input type="checkbox" id="E" name="E">
 							Henshall
@@ -125,6 +147,11 @@
 						</tr>
 						</table>
 						</p>
+					</div>
+					<div id="tts" class="tabContent">
+					<h1>Text-To-Speech</h1>
+						<input type="checkbox" id="ttsEnabled" name="ttsEnabled">
+						Enabled 
 					</div>
 				</div>
 			<p><input type="submit" id="submit" value="Save" /></p>

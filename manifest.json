@@ -1,43 +1,45 @@
 {
-	"manifest_version": 2,
-	
-	"name": "Kanji Magic",
-	"version": "0.0.1",
-	"default_locale": "vi",
-	"description": "Translate Japanese by hovering over words, draw Kanji stroke with order. [A port of rikaikun for chrome.]",
-	"icons": { "48": "images/icon48.png",
-				"128": "images/icon128.png"},
-	
-	"permissions": [
-		"tabs",
-		"clipboardWrite",
-		"management"
-	],
+    "manifest_version": 2,
 
-	"background": {
-		"page": "background.html",
-		"persistent": true
-	},
-	
-	"browser_action": {
-		"default_icon": "images/ba.png"
-	},
-	
-	"options_page": "options.html",
+    "name": "Kanji Magic",
+    "version": "0.10.1",
+    "default_locale": "vi",
+    "description": "Translate Japanese by hovering over words, draw Kanji stroke with order. [A port of rikaikun for chrome.]",
+    "icons": {
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
 
-	"content_scripts": [
-		{
-			"matches": ["http://*/*", "https://*/*", "ftp://*/*", "file:///*"],
-			"js": ["rikaicontent.js", "lib/jquery-1.7.1.min.js", "lib/raphael-min.js", "lib/kanji-viewer.js"],
-			"all_frames":true
-		}
-	],
+    "permissions": [
+        "tabs",
+        "clipboardWrite",
+        "storage"
+    ],
 
-	"web_accessible_resources": [
-		"css/popup-black.css",
-		"css/popup-blue.css",
-		"css/popup-lightblue.css",
-		"css/popup-yellow.css"
-	],
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+
+    "browser_action": {
+        "default_icon": "images/ba.png"
+    },
+
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    },
+
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*", "ftp://*/*", "file:///*"],
+        "js": ["rikaicontent.js", "lib/jquery-1.7.1.min.js", "lib/raphael-min.js", "lib/kanji-viewer.js"],
+        "all_frames": true
+    }],
+
+    "web_accessible_resources": [
+        "css/popup-black.css",
+        "css/popup-blue.css",
+        "css/popup-lightblue.css",
+        "css/popup-yellow.css"
+    ]
 }

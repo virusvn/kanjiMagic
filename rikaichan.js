@@ -162,22 +162,10 @@ var rcxMain = {
 	},
 */
 
-	loadDictionary: function() {
-		if (!this.dict) {
-			/* if (typeof(rcxWordDict) == 'undefined') {
-				this.showDownload();
-				return false;
-			} */
-			try {
-				this.dict = new rcxDict(this.haveNames/* && !this.cfg.nadelay*/);
-				//this.dict.setConfig(this.dconfig);
-			}
-			catch (ex) {
-				alert('Error loading dictionary: ' + ex);
-				return false;
-			}
-		}
-		return true;
+	loadDictionary: function() {	
+		this.dict = new rcxDict();
+		return this.dict.init(this.haveNames/* && !this.cfg.nadelay*/);
+		//this.dict.setConfig(this.dconfig);
 	},
 /*
 	showDownload: function() {
@@ -303,6 +291,8 @@ var rcxMain = {
 		'<tr><td>B</td><td>Previous character</td></tr>' +
 		'<tr><td>M</td><td>Next character</td></tr>' +
 		'<tr><td>N</td><td>Next word</td></tr>' +
+		'<tr><td>J</td><td>Scroll back definitions</td></tr>' +
+		'<tr><td>K</td><td>Scroll forward definitions</td></tr>' +
 		'</table>',
 		
 /* 			'<tr><td>C</td><td>Copy to clipboard</td></tr>' +
@@ -313,22 +303,26 @@ var rcxMain = {
 	inlineEnable: function(tab, mode) {
 		if (!this.dict) {
 			//	var time = (new Date()).getTime();
-			if (!this.loadDictionary()) return;
+			this.loadDictionary().then(function () {
+				// Send message to current tab to add listeners and create stuff
+				chrome.tabs.sendMessage(tab.id, { "type": "enable", "config": rcxMain.config });
+				this.enabled = 1;
+
+				if (mode == 1) {
+					if (rcxMain.config.minihelp)
+						chrome.tabs.sendMessage(tab.id, { "type": "showPopup", "text": rcxMain.miniHelp });
+					else
+						chrome.tabs.sendMessage(tab.id, { "type": "showPopup", "text": 'Rikaikun enabled!' });
+				}
+				chrome.browserAction.setBadgeBackgroundColor({ "color": [255, 0, 0, 255] });
+				chrome.browserAction.setBadgeText({ "text": "On" });
+
+			}.bind(this)).catch(function(err){
+				alert('Error loading dictionary: ' + err);
+			});
+
 			//	time = (((new Date()).getTime() - time) / 1000).toFixed(2);
 		}
-		
-		// Send message to current tab to add listeners and create stuff
-		chrome.tabs.sendMessage(tab.id, {"type":"enable", "config":rcxMain.config});
-		this.enabled = 1;
-		
-		if (mode == 1) {
-			if (rcxMain.config.minihelp == 'true')
-				chrome.tabs.sendMessage(tab.id, {"type":"showPopup", "text":rcxMain.miniHelp});
-			else
-				chrome.tabs.sendMessage(tab.id, {"type":"showPopup", "text":'Rikaikun enabled!'});
-		} 
-		chrome.browserAction.setBadgeBackgroundColor({"color":[255,0,0,255]});
-		chrome.browserAction.setBadgeText({"text":"On"});
 	},
 
 	// This function diables 
